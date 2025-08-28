@@ -1,0 +1,44 @@
+<mat-card *ngIf="results.length > 0; else noResults">
+  <mat-table [dataSource]="results" class="mat-elevation-z2">
+
+    <!-- 출발지 -->
+    <ng-container matColumnDef="origin">
+      <mat-header-cell *matHeaderCellDef> 출발지 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.ORIGIN }} </mat-cell>
+    </ng-container>
+
+    <!-- 도착지 -->
+    <ng-container matColumnDef="destination">
+      <mat-header-cell *matHeaderCellDef> 도착지 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.DESTINATION }} </mat-cell>
+    </ng-container>
+
+    <!-- 화물 종류 -->
+    <ng-container matColumnDef="volume">
+      <mat-header-cell *matHeaderCellDef> 화물 종류 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.VOLUME }} </mat-cell>
+    </ng-container>
+
+    <!-- 운임 -->
+    <ng-container matColumnDef="rate">
+      <mat-header-cell *matHeaderCellDef> 운임 (USD) </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.RATE }} </mat-cell>
+    </ng-container>
+
+    <!-- 수수료 -->
+    <ng-container matColumnDef="fee">
+      <mat-header-cell *matHeaderCellDef> 수수료 (USD) </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.FEE }} </mat-cell>
+    </ng-container>
+
+    <!-- 헤더와 로우 -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</mat-card>
+
+<ng-template #noResults>
+  <mat-card>
+    <p>😢 검색 결과가 없습니다. 조건을 다시 확인해보세요.</p>
+  </mat-card>
+</ng-template>

@@ -1,12 +1,10 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { SearchForm } from './search-form/search-form';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  standalone: true,
+  imports: [SearchForm],
+  template: `<app-search-form />`
 })
-export class App {
-  protected readonly title = signal('haezimvo.com');
-}
+export class App {}

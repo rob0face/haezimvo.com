@@ -1,0 +1,23 @@
+<mat-card class="form-card">
+  <h2>운임 검색</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>출발지</mat-label>
+    <input matInput [(ngModel)]="origin" placeholder="예: BUSAN" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>도착지</mat-label>
+    <input matInput [(ngModel)]="destination" placeholder="예: ISTANBUL" />
+  </mat-form-field>
+
+  <label>화물 종류</label>
+  <mat-radio-group [(ngModel)]="volume">
+    <mat-radio-button value="FCL">FCL</mat-radio-button>
+    <mat-radio-button value="LCL">LCL</mat-radio-button>
+  </mat-radio-group>
+
+  <button mat-raised-button color="primary" (click)="onSearch()">🔍 검색</button>
+
+  <app-result-list [results]="results"></app-result-list>
+</mat-card>
