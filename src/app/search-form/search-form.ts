@@ -25,7 +25,7 @@ export class SearchForm {
   constructor(private http: HttpClient) {}
 
   onSearch() {
-    this.http.get<any[]>('https://rob0face.github.io/haezimvo.com/HAEZIMVO.json')
+    this.http.get<any[]>('https://rob0face.github.io/HAEZIMVO/HAEZIMVO.json')
       .subscribe(data => {
         this.results = data.filter(item =>
           item.ORIGIN === this.origin &&
