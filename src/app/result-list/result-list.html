@@ -1,6 +1,7 @@
 @if (results.length > 0) {
   <mat-card>
-    <mat-table [dataSource]="results" class="mat-elevation-z2">
+    <div class="table-wrapper">
+      <mat-table [dataSource]="results" class="mat-elevation-z2">
 
       <!-- 선사 -->
       <ng-container matColumnDef="선사">
@@ -38,11 +39,52 @@
         <mat-cell *matCellDef="let element"> {{ element.VALID_UNTIL }} </mat-cell>
       </ng-container>
 
+      <!-- 수수료 -->
+      <ng-container matColumnDef="수수료">
+        <mat-header-cell *matHeaderCellDef> 수수료 </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          @if (getValidFees(row).length > 0) {
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>보기</mat-panel-title>
+                </mat-expansion-panel-header>
+                @for (fee of getValidFees(row); track $index) {
+                  <p>
+                    <strong>{{ fee.name }}</strong>
+                    (단위: {{ fee.unit }})
+                    {{ fee.amount }} {{ fee.currency }}
+                  </p>
+                }
+              </mat-expansion-panel>
+            </mat-accordion>
+          }
+        </mat-cell>
+      </ng-container>
+
       <!-- 헤더와 로우 -->
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-  </mat-card>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+        @if (getValidFees(row).length > 0) {
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>수수료</mat-panel-title>
+                </mat-expansion-panel-header>
+                @for (fee of getValidFees(row); track $index) {
+                  <p>
+                    <strong>{{ fee.name }}</strong>
+                    (단위: {{ fee.unit }})
+                    {{ fee.amount }} {{ fee.currency }}
+                  </p>
+                }
+              </mat-expansion-panel>
+            </mat-accordion>
+          }
+        </mat-row>
+      </mat-table>
+    </div>
+</mat-card>
 } @else {
     <mat-card>
       <p>😢 검색 결과가 없습니다. 조건을 다시 확인해보세요.</p>
