@@ -2,6 +2,12 @@
   <mat-card>
     <mat-table [dataSource]="results" class="mat-elevation-z2">
 
+      <!-- 선사 -->
+      <ng-container matColumnDef="선사">
+        <mat-header-cell *matHeaderCellDef> 선사 </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.CARRIER }} </mat-cell>
+      </ng-container>
+
       <!-- 출발지 -->
       <ng-container matColumnDef="출발지">
         <mat-header-cell *matHeaderCellDef> 출발지 </mat-header-cell>
@@ -24,6 +30,12 @@
       <ng-container matColumnDef="40HC 운임">
         <mat-header-cell *matHeaderCellDef> 40HC 운임 </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{ element.FARE_40HC }} </mat-cell>
+      </ng-container>
+
+      <!-- 운임 만료 -->
+      <ng-container matColumnDef="운임 만료">
+        <mat-header-cell *matHeaderCellDef> 운임 만료 </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.VALID_UNTIL }} </mat-cell>
       </ng-container>
 
       <!-- 헤더와 로우 -->

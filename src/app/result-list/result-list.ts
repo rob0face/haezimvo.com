@@ -16,5 +16,5 @@ import { MatTableModule } from '@angular/material/table';
 export class ResultList {
   @Input() results: any[] = [];
 
-  displayedColumns: string[] = ['출발지', '도착지', '20STD 운임', '40HC 운임'];
+  displayedColumns: string[] = ['선사', '출발지', '도착지', '20STD 운임', '40HC 운임', '운임 만료'];
 }
