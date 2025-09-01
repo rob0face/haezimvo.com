@@ -1,59 +1,69 @@
 # haezimvo.com
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+(License below)
 
-## Development server
+haezimvo.com is the web platform of the "Haezimvo" Project.
+It will deliver you the best quote of ocean-freight fares, instantly.
+The goal here is to make the world's ocean freight system as transparent as possible,
+and empower any import/export businesses who lack crucial information.
 
-To start a local development server, run:
+This works with HAEZIMVO (the Database itself)
+and Haezimvo Database Manager (the tailor-made DBMS).
+Three combined, form a bigger project "Haezimvo",
+the Containerized Freight Solution for import/export businesses.
 
-```bash
-ng serve
-```
+Author:
+G. Dave Lee "rob0face"
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# 해짐보닷컴
 
-## Code scaffolding
+(하단에 License 기재됨)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+해짐보닷컴은 "해짐보" 프로젝트의 웹 플랫폼입니다.
+이것은 최선의 운임을 즉시 당신께 제공해 드릴 수 있도록 설계됐습니다.
+목표는, 현재의 해상 운송 시스템을 이전보다 더 투명하게 변화시켜
+그 어떤 수입/수출 사업이라도 정보가 부족하지 않도록 하는 것입니다.
 
-```bash
-ng generate component component-name
-```
+해짐보 (HAEZIMVO: 데이터베이스 자체),
+해짐보 데이터베이스 매니저(Haezimvo Database Manager: 맞춤형 DBMS)와 함께 작동합니다.
+세 개가 함께, 더 거대한 프로젝트인
+수입/수출 업무를 위한 컨테이너화 물류 솔루션 "해짐보(Haezimvo)"를 완성합니다.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+개발자:
+이 건중 "rob0face"
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+# License
 
-To build the project run:
+Angular
+Copyright (c) Google LLC.
+MIT License : https://mit-license.org/
 
-```bash
-ng build
-```
+rxjs
+Copyright (c) Google LLC., Netflix Inc., Microsoft Corporation and contributors
+Apache 2.0 License : https://www.apache.org/licenses/LICENSE-2.0
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+tslib
+Copyright (c) Microsoft Corporation
+0BSD License : https://opensource.org/license/0bsd
 
-## Running unit tests
+office-js
+Copyright (c) Microsoft Corporation
+MIT License : https://mit-license.org/
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+zone-js
+Copyright (c) Google LLC.
+MIT License : https://mit-license.org/
 
-```bash
-ng test
-```
+Haezimvo Database Manager
+Copyright (c) Wincon Freight Co., Ltd.
+Haezimvo License : refer to LICENSE.md
 
-## Running end-to-end tests
+haezimvo.com
+Copyright (c) Wincon Freight Co., Ltd.
+Haezimvo License : refer to LICENSE.md
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+HAEZIMVO
+Copyright (c) Wincon Freight Co., Ltd.
+Haezimvo License : refer to LICENSE.md
