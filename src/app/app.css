@@ -1,0 +1,9 @@
+@media (forced-colors: active) {
+  /* High contrast styles for Windows and Edge */
+  /* Example: */
+  body {
+    background: Window;
+    color: WindowText;
+  }
+  /* Add other overrides as needed */
+}
