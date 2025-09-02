@@ -8,7 +8,7 @@
   /* Add other overrides as needed */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1440px) {
   .layout-container {
     flex-direction: column;
   }

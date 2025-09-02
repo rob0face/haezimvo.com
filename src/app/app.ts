@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SearchForm } from './search-form/search-form';
 import { ResultList } from './result-list/result-list';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
