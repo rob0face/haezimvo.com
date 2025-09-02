@@ -23,8 +23,9 @@ mat-header-row {
 }
 
 .mat-column-수수료 {
-  width: 750px;
-  min-width: 600px;
+  width: 800px;
+  min-width: 800px;
+  max-width: 800px;
 }
 
 .mat-column-선사,
@@ -43,7 +44,7 @@ mat-header-row {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   mat-header-cell, mat-cell {
     padding: 0.5rem 0.5rem;
     min-width: 80px;
