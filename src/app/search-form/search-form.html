@@ -14,10 +14,7 @@
   <label>화물 종류</label>
   <mat-radio-group [(ngModel)]="volume">
     <mat-radio-button value="FCL">FCL</mat-radio-button>
-    <mat-radio-button value="LCL">LCL</mat-radio-button>
   </mat-radio-group>
 
   <button mat-raised-button color="primary" (click)="onSearch()">🔍 검색</button>
-
-  <app-result-list [results]="results"></app-result-list>
 </mat-card>

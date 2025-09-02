@@ -7,3 +7,30 @@
   }
   /* Add other overrides as needed */
 }
+
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+  }
+}
+
+
+.layout-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* 왼쪽 검색창 */
+.search-panel {
+  flex: 0 0 300px; /* 고정 너비 */
+  min-width: 280px;
+}
+
+/* 오른쪽 결과창 */
+.result-panel {
+  flex: 1; /* 남은 공간 모두 차지 */
+  overflow-x: auto;
+}
