@@ -22,14 +22,30 @@ mat-header-row {
   z-index: 1;
 }
 
-@media (max-width: 768px) {
-  mat-header-cell, mat-cell {
-    padding: 0.5rem 0.5rem;
-    min-width: 80px;
-  }
+.mat-column-수수료 {
+  width: 750px;
+  min-width: 600px;
+}
+
+.mat-column-선사,
+.mat-column-출발지,
+.mat-column-도착지,
+.mat-column-20STD 운임,
+.mat-column-40HC 운임,
+.mat-column-운임 만료 {
+  width: auto;
+  flex: 1 1 0;
+  min-width: 100px;
 }
 
 .table-wrapper {
   overflow-x: auto;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  mat-header-cell, mat-cell {
+    padding: 0.5rem 0.5rem;
+    min-width: 80px;
+  }
 }
