@@ -74,8 +74,7 @@
                 @for (fee of getValidFees(row); track $index) {
                   <p>
                     <strong>{{ fee.name }}</strong>
-                    (단위: {{ fee.unit }})
-                    {{ fee.amount }} {{ fee.currency }}
+                    {{ fee.amount }} {{ fee.currency }} / {{ fee.unit }}
                   </p>
                 }
               </mat-expansion-panel>
