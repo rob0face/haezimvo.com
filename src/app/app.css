@@ -8,17 +8,6 @@
   /* Add other overrides as needed */
 }
 
-@media (max-width: 1440px) {
-  .layout-container {
-    flex-direction: column;
-  }
-  .search-panel,
-  .result-panel {
-    min-width: 0;
-    width: 100%;
-  }
-}
-
 
 .layout-container {
   display: flex;
@@ -38,4 +27,15 @@
 .result-panel {
   flex: 1; /* 남은 공간 모두 차지 */
   overflow-x: auto;
+}
+
+@media (max-width: 1080px) {
+  .layout-container {
+    flex-direction: column;
+  }
+  .search-panel,
+  .result-panel {
+    min-width: 0;
+    width: 100%;
+  }
 }
