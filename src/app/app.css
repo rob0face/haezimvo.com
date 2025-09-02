@@ -12,6 +12,11 @@
   .layout-container {
     flex-direction: column;
   }
+  .search-panel,
+  .result-panel {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
 
