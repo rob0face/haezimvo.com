@@ -15,6 +15,7 @@
   gap: 1rem;
   padding: 1rem;
   box-sizing: border-box;
+  align-items: flex-start; /* Add this line */
 }
 
 /* 왼쪽 검색창 */
