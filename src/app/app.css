@@ -39,3 +39,24 @@
     width: 100%;
   }
 }
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem 0 2rem;
+  background: var(--mat-sys-surface, #fff);
+  border-bottom: 1px solid #000;
+}
+
+.header-link {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.header-link a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+}

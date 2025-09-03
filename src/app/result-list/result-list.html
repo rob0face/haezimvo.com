@@ -4,23 +4,33 @@
       <mat-card class="result-card">
         <mat-card-title>{{ row.CARRIER }}</mat-card-title>
         <mat-card-content>
-          <p><strong>출발 |</strong> 대한민국 {{ row.ORIGIN_KO }}</p>
-          <p><strong>도착 |</strong> {{ row.DEST_NATION_KO }} {{ row.DESTINATION_KO }}</p>
-          <p><strong>20STD 운임 |</strong> {{ row.FARE_20STD }} USD</p>
-          <p><strong>40HC 운임 |</strong> {{ row.FARE_40HC }} USD</p>
-          <p><strong>운임 만료 |</strong> {{ row.VALID_UNTIL }}</p>
-          @if (getValidFees(row).length > 0) {
+          <p><strong>출발:</strong> 대한민국 {{ row.ORIGIN_KO }}</p>
+          <p><strong>도착:</strong> {{ row.DEST_NATION_KO }} {{ row.DESTINATION_KO }}</p>
+          @if (row.FARE_20STD > 0) {
+            <p><strong>20STD 운임:</strong> {{ row.FARE_20STD }} USD</p>
+          }
+          @if (row.FARE_40HC > 0) {
+            <p><strong>40HC 운임:</strong> {{ row.FARE_40HC }} USD</p>
+          }
+          @if (row.FARE_LCL > 0) {
+            <p><strong>LCL 운임:</strong> {{ row.FARE_LCL }} USD / RT</p>
+          }
+          <p><strong>운임 만료:</strong> {{ row.VALID_UNTIL }}</p>
+          @if (getValidFees(row).length > 0 || true) {
+            <!-- 수수료 정보가 없더라도 패널을 항상 표시 -->
             <mat-accordion>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title>수수료 보기</mat-panel-title>
+                  <mat-panel-title>수수료</mat-panel-title>
                 </mat-expansion-panel-header>
                 @for (fee of getValidFees(row); track $index) {
                   <p>
-                    <strong>{{ fee.name }}</strong>
+                    <strong>{{ fee.name }}: </strong>
                     {{ fee.amount }} {{ fee.currency }} / {{ fee.unit }}
                   </p>
                 }
+                <p><small>수수료는 정확하지 않습니다.</small><br>
+                <small><ins>수수료 읽는 방법 (외부 링크) (제작 중)</ins></small></p>
               </mat-expansion-panel>
             </mat-accordion>
           }
