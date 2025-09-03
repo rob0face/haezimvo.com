@@ -23,7 +23,10 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/favicon.ico",
+              "src/assets",
+              "public"
             ],
             "styles": [
               "src/custom-theme.scss",
