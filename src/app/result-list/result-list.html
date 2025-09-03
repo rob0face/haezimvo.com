@@ -1,53 +1,19 @@
 @if (results.length > 0) {
-  <mat-card>
-    <div class="table-wrapper">
-      <mat-table [dataSource]="results" class="mat-elevation-z2">
-
-      <!-- 선사 -->
-      <ng-container matColumnDef="선사">
-        <mat-header-cell *matHeaderCellDef> 선사 </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.CARRIER }} </mat-cell>
-      </ng-container>
-
-      <!-- 출발지 -->
-      <ng-container matColumnDef="출발지">
-        <mat-header-cell *matHeaderCellDef> 출발지 </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.ORIGIN }} </mat-cell>
-      </ng-container>
-
-      <!-- 도착지 -->
-      <ng-container matColumnDef="도착지">
-        <mat-header-cell *matHeaderCellDef> 도착지 </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.DESTINATION }} </mat-cell>
-      </ng-container>
-
-      <!-- 20STD 운임 -->
-      <ng-container matColumnDef="20STD 운임">
-        <mat-header-cell *matHeaderCellDef> 20STD 운임 </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.FARE_20STD }} </mat-cell>
-      </ng-container>
-
-      <!-- 40HC 운임 -->
-      <ng-container matColumnDef="40HC 운임">
-        <mat-header-cell *matHeaderCellDef> 40HC 운임 </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.FARE_40HC }} </mat-cell>
-      </ng-container>
-
-      <!-- 운임 만료 -->
-      <ng-container matColumnDef="운임 만료">
-        <mat-header-cell *matHeaderCellDef> 운임 만료 </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.VALID_UNTIL }} </mat-cell>
-      </ng-container>
-
-      <!-- 수수료 -->
-      <ng-container matColumnDef="수수료">
-        <mat-header-cell *matHeaderCellDef> 수수료 </mat-header-cell>
-        <mat-cell *matCellDef="let row">
+  <div class="card-list">
+    @for (row of results; track $index) {
+      <mat-card class="result-card">
+        <mat-card-title>{{ row.CARRIER }}</mat-card-title>
+        <mat-card-content>
+          <p><strong>출발 |</strong> 대한민국 {{ row.ORIGIN_KO }}</p>
+          <p><strong>도착 |</strong> {{ row.DEST_NATION_KO }} {{ row.DESTINATION_KO }}</p>
+          <p><strong>20STD 운임 |</strong> {{ row.FARE_20STD }} USD</p>
+          <p><strong>40HC 운임 |</strong> {{ row.FARE_40HC }} USD</p>
+          <p><strong>운임 만료 |</strong> {{ row.VALID_UNTIL }}</p>
           @if (getValidFees(row).length > 0) {
             <mat-accordion>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title>보기</mat-panel-title>
+                  <mat-panel-title>수수료 보기</mat-panel-title>
                 </mat-expansion-panel-header>
                 @for (fee of getValidFees(row); track $index) {
                   <p>
@@ -58,33 +24,12 @@
               </mat-expansion-panel>
             </mat-accordion>
           }
-        </mat-cell>
-      </ng-container>
-
-      <!-- 헤더와 로우 -->
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;">
-        @if (getValidFees(row).length > 0) {
-            <mat-accordion>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title>수수료</mat-panel-title>
-                </mat-expansion-panel-header>
-                @for (fee of getValidFees(row); track $index) {
-                  <p>
-                    <strong>{{ fee.name }}</strong>
-                    {{ fee.amount }} {{ fee.currency }} / {{ fee.unit }}
-                  </p>
-                }
-              </mat-expansion-panel>
-            </mat-accordion>
-          }
-        </mat-row>
-      </mat-table>
-    </div>
-</mat-card>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
 } @else {
-    <mat-card>
-      <p>😢 검색 결과가 없습니다. 조건을 다시 확인해보세요.</p>
-    </mat-card>
+  <mat-card>
+    <p>😢 검색 결과가 없습니다. 조건을 다시 확인해보세요.</p>
+  </mat-card>
 }

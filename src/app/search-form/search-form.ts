@@ -7,11 +7,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   standalone: true,
   selector: 'app-search-form',
-  imports: [CommonModule, FormsModule, MatInputModule, MatRadioModule, MatButtonModule, MatCardModule, MatTableModule],
+  imports: [CommonModule, FormsModule, MatInputModule, MatRadioModule, MatButtonModule, MatCardModule, MatTableModule, MatSelectModule],
   templateUrl: './search-form.html',
   styleUrls: ['./search-form.css']
 })
@@ -28,8 +29,11 @@ export class SearchForm {
     this.http.get<any[]>('https://rob0face.github.io/HAEZIMVO/HAEZIMVO.json')
       .subscribe(data => {
         const filtered = data.filter(item =>
-          item.ORIGIN === this.origin &&
-          item.DESTINATION === this.destination &&
+          (item.ORIGIN === this.origin || this.origin === 'All') &&
+          (item.DESTINATION === this.destination.trim().toUpperCase() ||
+            item.DEST_NATION_KO === this.destination.trim().toUpperCase() ||
+            item.DESTINATION_KO === this.destination.trim().toUpperCase() ||
+            this.destination == 'All') &&
           item.VOLUME === this.volume
         );
         this.results = filtered;
